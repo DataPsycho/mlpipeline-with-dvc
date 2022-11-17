@@ -1,0 +1,4 @@
+outs:
+- md5: c998f8bcd2e44e2d807da0557cf51fd0
+  size: 10118
+  path: autompg.csv
