@@ -1,0 +1,16 @@
+schema: '2.0'
+stages:
+  build_bin:
+    cmd: ./build_bin.sh
+    deps:
+    - path: Cargo.toml
+      md5: 4ab39076c0cdc62a58c4b5a7b25323e5
+      size: 366
+    - path: src/main.rs
+      md5: da34b16658b5b85c180bc2eda5c8906b
+      size: 2555
+    outs:
+    - path: bin
+      md5: 90841c4d2ba517d615a3fbaabaceca9d.dir
+      size: 21625152
+      nfiles: 1
