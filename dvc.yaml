@@ -11,12 +11,14 @@ stages:
       - ./target/release/torch-mlops
     outs:
       - data/processed
-  # train:
-  #   cmd: python src/train.py data/porcessed model.pkl
-  #   deps:
-  #     - data/processed
-  #     - pysrc/train.py
-  #   params:
-  #     - train.min_split
-  #     - train.n_est
-  #     - train.seed
+  train:
+    cmd: python pysrc/train.py data/processed model.pkl
+    deps:
+      - data/processed
+      - pysrc/train.py
+    params:
+      - train.min_split
+      - train.n_est
+      - train.seed
+    outs:
+      - models
