@@ -1,9 +1,9 @@
 stages:
-  # build_bin:
-  #   cmd: cargo build --release
-  #   deps:
-  #     - src/main.rs
-  #     - Cargo.toml
+  build_bin:
+    cmd: cargo build --release
+    deps:
+      - src/main.rs
+      - Cargo.toml
   preprocess:
     cmd: ./target/release/torch-mlops
     deps:

@@ -7,8 +7,8 @@ stages:
       md5: 0e5249de0e7ec499465859cf03f3585d
       size: 352
     - path: src/main.rs
-      md5: 31231ba6019037c0a310102380413a59
-      size: 2496
+      md5: 2f3caa5a65f0cfb4c92f9668fa9dec04
+      size: 2495
   preprocess:
     cmd: ./target/release/torch-mlops
     deps:
