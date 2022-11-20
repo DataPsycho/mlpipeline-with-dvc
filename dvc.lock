@@ -1,16 +1,25 @@
 schema: '2.0'
 stages:
   build_bin:
-    cmd: ./build_bin.sh
+    cmd: cargo build --release
     deps:
     - path: Cargo.toml
-      md5: 4ab39076c0cdc62a58c4b5a7b25323e5
-      size: 366
+      md5: 0e5249de0e7ec499465859cf03f3585d
+      size: 352
     - path: src/main.rs
-      md5: da34b16658b5b85c180bc2eda5c8906b
-      size: 2555
+      md5: 31231ba6019037c0a310102380413a59
+      size: 2496
+  preprocess:
+    cmd: ./target/release/torch-mlops
+    deps:
+    - path: ./target/release/torch-mlops
+      md5: 921438503821fe1e6856017eed66a2b9
+      size: 21630016
+    - path: data/raw/autompg.csv
+      md5: 6e54e3cb41fb0219bc780b4387a7c2e4
+      size: 17725
     outs:
-    - path: bin
-      md5: 90841c4d2ba517d615a3fbaabaceca9d.dir
-      size: 21625152
-      nfiles: 1
+    - path: data/processed
+      md5: 64d6354f40d3000d0040d14a8f060947.dir
+      size: 41552
+      nfiles: 3

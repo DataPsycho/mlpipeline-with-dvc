@@ -1,5 +1,6 @@
 use polars::{prelude::*, datatypes::DataType::Float64};
 use std::path::Path;
+use std::fs;
 
 
 fn read_csv_into_df() -> Result<DataFrame, PolarsError>{
@@ -32,8 +33,6 @@ fn standardize(val : &Series) -> Series {
     let result = casted_series.f64().unwrap().into_iter().map(|atom|{
         atom.map(|proton|{(proton - val_mean)/val_std as f64})
     });
-    // println!("{:?}", val_mean);
-    // println!("{:?}", val_std);
     result.collect::<Float64Chunked>().into_series()
 }
 
@@ -52,7 +51,7 @@ fn write_to_csv(path: String, mut df: DataFrame) {
 }
 
 fn main() -> PolarsResult<()>{
-    // let file_path = "data/raw/autompg.csv";
+    fs::create_dir_all("data/processed")?;
     let mut df = read_csv_into_df().unwrap();
     let df = df.apply("model year", bucketize)?;
     let df = df.drop("car name").unwrap();

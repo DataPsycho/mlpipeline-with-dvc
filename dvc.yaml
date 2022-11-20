@@ -1,0 +1,22 @@
+stages:
+  # build_bin:
+  #   cmd: cargo build --release
+  #   deps:
+  #     - src/main.rs
+  #     - Cargo.toml
+  preprocess:
+    cmd: ./target/release/torch-mlops
+    deps:
+      - data/raw/autompg.csv
+      - ./target/release/torch-mlops
+    outs:
+      - data/processed
+  # train:
+  #   cmd: python src/train.py data/porcessed model.pkl
+  #   deps:
+  #     - data/processed
+  #     - pysrc/train.py
+  #   params:
+  #     - train.min_split
+  #     - train.n_est
+  #     - train.seed
