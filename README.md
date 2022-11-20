@@ -1,4 +1,4 @@
-# ML Pipeline Decaoupled: write Framework Agonstic ML Pipeline with DVC, RUST and Python
+# ML Pipeline Decoupled: Write Framework Agonstic ML Pipeline with DVC, RUST and Python
 
 The feature creating and data cleaning part is written in rust and code can be found in src/main.rs file. This part is using Polars dataframe to clean, filter and featurize the data.
 
